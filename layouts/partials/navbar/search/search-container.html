@@ -1,0 +1,27 @@
+<div id="search-container" class="grid-full relative flex flex-col -z-10 transition-opacity duration-300 ease-in-out bg-yellow-600 opacity-0 overflow-hidden min-h-screen w-full">
+  <div class="flex items-center">
+    <div class="flex-grow"></div>
+    <span id="cancel-search-icon" class="cursor-pointer text-red-900 p-2">
+      {{ partial "svgs/basic/delete.svg" (dict "width" 40 "height" 40) }}
+    </span>
+  </div>
+
+  <div class="mx-4 md:mx-12">
+    <input id="search-input" type="text" class="w-full my-6 p-2 text-2xl rounded-md" aria-label="Site Search" placeholder="{{T "search-placeholder" | default "search" }}" autocomplete="off">
+  </div>
+
+  <section class="search-result">
+    <div class="search-result__body px-4 md:px-16 pb-4 pt-8">
+      <ul>
+        <li class="search-result__item">
+          <div class="search-result__item--title">
+          </div>
+          <div class="search-result__item--desc">
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+{{ partial "script/search.html" . }}

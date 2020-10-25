@@ -1,0 +1,37 @@
+<script defer src="{{ $.root.Site.Data.lib.js.typewriter.url }}" integrity="{{ $.root.Site.Data.lib.js.typewriter.sri }}" crossorigin="anonymous"></script>
+
+<div class="flex flex-col justify-center items-center">
+  <div id="typewriter" class="{{ $.local.classes }}"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    {{ $methods:= $.local.methods }}
+    {{ $options:= $.local.options }}
+
+    var methods = JSON.parse({{ $methods | jsonify }});
+    var options = JSON.parse({{ $options | jsonify }});
+    var typeElem = document.getElementById("typewriter");
+    var typewriter = new Typewriter(typeElem, options);
+    
+    for (var i = 0; i < methods.length; i++) {
+      var key = Object.keys(methods[i])[0];
+
+      if (key === "typeString") {
+        typewriter.typeString(methods[i][key]);
+      } else if (key === "pauseFor") {
+        typewriter.pauseFor(methods[i][key]);
+      } else if (key === "deleteAll") {
+        typewriter.deleteAll();
+      } else if (key === "deleteChars") {
+        typewriter.deleteChars(methods[i][key]);
+      } else if (key === "pause") {
+        typewriter.pause();
+      } else if (key === "stop") {
+        typewriter.stop();
+      }
+    }
+
+    typewriter.start();
+  });
+</script>

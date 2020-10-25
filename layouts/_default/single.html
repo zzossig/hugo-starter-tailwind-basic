@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <section class="grid-mid md:grid-mid w-full px-4 lg:px-8">
+    <article class="prose prose-sm sm:prose lg:prose-xl max-w-none">
+      {{ .Content }}
+    </article>
+  </section>
+  <aside class="grid-col-r hidden xl:block">
+    {{ .TableOfContents }}
+  </aside>
+{{ end }}

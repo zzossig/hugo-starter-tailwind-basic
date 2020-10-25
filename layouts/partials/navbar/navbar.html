@@ -1,0 +1,16 @@
+<header class="grid-row-t flex items-center px-12">
+<div class="flex-grow"></div>
+  {{ if $.Param "enableSearch" }}
+    <span id="search-icon" class="cursor-pointer mr-3 text-red-900 z-40">
+      {{ partial "svgs/basic/search.svg" (dict "width" 40 "height" 40) }}
+    </span>
+  {{ end }}
+  <span id="menu-icon" class="cursor-pointer text-red-900 z-40">
+    {{ partial "svgs/basic/menu.svg" (dict "width" 40 "height" 40) }}
+  </span>
+</header>
+
+{{ partial "navbar/menu/menu-container.html" . }}
+{{ if $.Param "enableSearch" }}
+  {{ partial "navbar/search/search-container.html" . }}
+{{ end }}

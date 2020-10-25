@@ -1,0 +1,32 @@
+{{ if .IsHome }}
+  {{ range $.Params.home }}
+    {{ if eq .type "padding" }}
+      {{ partial "home/home-padding.html" . }}
+    {{ end }}
+  {{ end }}
+
+  {{ $root := . }}
+  
+  <div class="flex md:items-start items-center md:justify-center flex-col md:flex-row w-full h-full px-4">
+    {{ range $.Params.home }}
+      {{ if eq .type "bioImage" }}
+        <div class="flex items-center flex-col pr-8 z-30">
+          {{ partial "home/home-bio-image.html" . }}
+        </div>
+      {{ end }}
+    {{ end }}
+    <div class="flex items-start flex-col z-30">
+      {{ range $.Params.home }}
+        {{ if eq .type "text" }}
+          {{ partial "home/home-text.html" . }}
+        {{ else if eq .type "image" }}
+          {{ partial "home/home-image.html" . }}
+        {{ else if eq .type "typewriter" }}
+          {{ partial "home/home-typewriter.html" (dict "root" $root "local" .) }}
+        {{ else if eq .type "socialLinks" }}
+          {{ partial "components/social-links.html" . }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

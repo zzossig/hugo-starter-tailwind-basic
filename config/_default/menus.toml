@@ -1,0 +1,56 @@
+[[main]]
+  identifier = "a"
+  name = "The Bulletproof Workspace"
+  url = "the-bulletproof-workspace"
+  weight = 1
+
+[[main]]
+  identifier = "b"
+  name = "Notion Videos"
+  url = "notion-videos"
+  weight = 2
+
+[[main]]
+  identifier = "archive"
+  name = "The Living Guide"
+  url = "archive"
+  weight = 3
+[[main]]
+  identifier = "d"
+  name = "Pro Tips"
+  url = "pro-tips"
+  weight = 4
+
+[[main]]
+  identifier = "e"
+  name = "Templates"
+  url = "templates"
+  weight = 5
+
+[[main]]
+  identifier = "f"
+  name = "Notion in the News"
+  url = "notion-in-the-news"
+  weight = 6
+[[main]]
+  identifier = "g"
+  name = "Notion Consulting"
+  url = "notion-consulting"
+  weight = 7
+
+[[main]]
+  identifier = "h"
+  name = "Product Updates"
+  url = "product-updates"
+  weight = 8
+
+[[main]]
+  identifier = "i"
+  name = "Notion Icons"
+  url = "notion-icons"
+  weight = 9
+[[main]]
+  identifier = "j"
+  name = "The NBA - in Notion"
+  url = "the-nba-in-notion"
+  weight = 10

@@ -1,0 +1,11 @@
+useFaviconGenerator = true # https://www.favicon-generator.org/
+
+enableSearch = true
+enableSearchHighlight = true
+
+archiveGroupByDate = "2006"
+archivePaginate = 20
+notAllowedTypesInArchive = ["about", "talks"]
+
+# footer 
+showPoweredBy = true

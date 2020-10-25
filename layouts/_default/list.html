@@ -1,0 +1,15 @@
+{{ define "main" }}
+<main class="grid-row-m mx-4">
+  <ul class="flex flex-col items-center">
+    {{ range .Pages }}
+      <li class="w-full max-w-screen-md border-b last:border-b-0 my-6 py-4">
+        <a href="{{ .Permalink }}" class="text-2xl">{{.Title}}</a>
+        {{ partial "components/post-infos.html" . }}
+        <div class="my-2">
+          {{ .Summary }}
+        </div>
+      </li>
+    {{ end }}
+  </ul>
+</main>
+{{ end }}

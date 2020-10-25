@@ -1,0 +1,14 @@
+<div class="flex items-center text-gray-600">
+  <span class="text-sm mr-2">
+    {{ partial "svgs/basic/calendar.svg" (dict "width" 18 "height" 18) }}
+    {{ .Date.Format "2006-01-02" }}
+  </span>
+  <span class="text-sm mr-2">
+    {{ partial "svgs/basic/coffee.svg" (dict "width" 25 "height" 25) }}
+    {{ .ReadingTime }}&nbsp;{{ i18n "reading-time" }}
+  </span>
+  <span class="text-sm mr-2">
+    {{ partial "svgs/basic/user.svg" (dict "width" 18 "height" 18) }}
+    {{ .Params.author }}
+  </span>
+</div>

@@ -1,8 +1,24 @@
 {{ define "main" }}
-  <article class="prose lg:prose-xl">
-    <h1 class="text-4xl">
-      {{ .Title }}
-    </h1>
-    {{ .Content }}
+  {{ $root := . }}
+
+  <article class="grid-row-m max-w-none h-full my-10">
+    {{ partial "home/home.html" . }}
   </article>
+
+  {{ range $.Params.home }}
+    {{ if eq .type "background" }}
+      {{ if eq .useParticles true }}
+        {{ partial "home/home-particles.html" (dict "root" $root "local" .) }}
+      {{ end }}
+      
+      {{ if .classes }}
+        <div class="grid-full {{ .classes }}"></div>
+      {{ end }}
+      
+      {{ if .image }}
+        {{ partial "home/home-background.html" . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
 {{ end }}

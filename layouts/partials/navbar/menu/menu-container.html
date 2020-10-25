@@ -1,0 +1,29 @@
+<div id="menu-container" class="grid-full absolute -z-10 transition-opacity duration-300 ease-in-out bg-green-600 opacity-0 min-h-screen w-full">
+  <div class="flex items-center">
+    <div class="flex-grow"></div>
+    <span id="cancel-menu-icon" class="cursor-pointer text-red-900 p-2">
+      {{ partial "svgs/basic/delete.svg" (dict "width" 40 "height" 40) }}
+    </span>
+  </div>
+
+  <div class="px-4 md:px-12 pb-8 md:pb-16">
+dsah
+  </div>
+
+  <div class="flex justify-center px-4 md:px-12">
+    <ul class="flex flex-wrap justify-center max-w-screen-lg">
+      {{ $current := . }}
+      {{ range $index, $menu := .Site.Menus.main }}
+        {{ $active := or ($current.IsMenuCurrent "main" $menu) ($current.HasMenuCurrent "main" $menu) }}
+        {{ $active = or $active (eq $menu.Name $current.Title) }}
+        {{ $active = or $active (eq (lower $menu.URL) (lower $current.Title)) }}
+        {{ $active = or $active (eq (lower $menu.URL) (lower $current.Type)) }}
+
+        <li class="text-2xl font-semibold w-4/5 md:w-2/5 mb-8 {{ if $active }}text-blue-500{{ end }}">
+          <a href="{{ $menu.URL | relLangURL }}">{{ safeHTML $menu.Name }}</a>
+        </li>
+        
+      {{ end }}
+    </ul>
+  </div>
+</div>

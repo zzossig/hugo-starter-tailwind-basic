@@ -1,0 +1,14 @@
+{{ range $key, $value := . }}
+  {{ if eq $key "padding" }}
+    {{ $value }}
+    <div class="{{ $value }}"></div>
+  {{ else if eq $key "image" }}
+    {{ if $value.link }}
+      <a href="{{ $value.link }}" target="_blank" rel="noreferrer">
+        <img src="{{ $value.src }}" alt="{{ $value.alt | default "Home Image" }}" class="{{ $value.classes }}" />
+      </a>
+    {{ else }}
+      <img src="{{ $value.src }}" alt="{{ $value.alt | default "Home Image" }}" class="{{ $value.classes }}" />
+    {{ end }}
+  {{ end }}
+{{ end }}

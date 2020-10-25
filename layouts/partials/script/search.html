@@ -1,0 +1,73 @@
+<script>
+  "use strict"
+
+  // ========================== search ==========================
+  {{ $baseurl := $.Site.BaseURL }}
+  var baseurl = JSON.parse({{ $baseurl | jsonify }});
+  {{ $permalink := .Permalink }}
+  var permalink = JSON.parse({{ $permalink | jsonify }});
+  {{ $langprefix := $.Site.LanguagePrefix }}
+  var langprefix = JSON.parse({{ $langprefix | jsonify }});
+  var searchResults = null;
+  var searchMenu = null;
+  var searchText = null;
+  
+  {{ $enableSearch := ($.Param "enableSearch") }}
+  var enableSearch = JSON.parse({{ $enableSearch | jsonify }});
+  {{ $enableSearchHighlight := ($.Param "enableSearchHighlight") }}
+  var enableSearchHighlight = JSON.parse({{ $enableSearchHighlight | jsonify }});
+  {{ $searchResultPosition := ($.Param "searchResultPosition") }}
+  var searchResultPosition = JSON.parse({{ $searchResultPosition | jsonify }});
+  {{ $sectionType := .Type }}
+  var sectionType = JSON.parse({{ $sectionType | jsonify }});
+  {{ $kind := .Kind }}
+  var kind = JSON.parse({{ $kind | jsonify }});
+  
+  var fuse = null;
+
+  if (enableSearch) {
+    (function initFuse() {
+      var xhr = new XMLHttpRequest();
+      
+      xhr.open('GET', baseurl + langprefix + "/index.json");
+      xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          fuse = new Fuse(JSON.parse(xhr.response.toString('utf-8')), {
+            keys: ['title', 'description', 'content'],
+            includeMatches: enableSearchHighlight,
+            shouldSort: true, // default: true
+            threshold: 0.4, // default: 0.6 (0.0 requires a perfect match)
+            location: 0, // default: 0
+            distance: 100, // default: 100
+            maxPatternLength: 32,
+            minMatchCharLength: 1,
+            isCaseSensitive: false, // defualt: false
+            findAllMatches: false, // default: false
+            useExtendedSearch: false, // default: false
+          });
+          window.fuse = fuse;
+        }
+        else {
+          console.error('[' + xhr.status + ']Error:', xhr.statusText);
+        }
+      };
+      xhr.send();
+    })();
+  }
+
+  var searchInputElem = document.getElementById('search-input');
+
+  searchInputElem ?
+  searchInputElem.addEventListener('input', function(e) {
+    searchText = e.target.value;
+    var results = fuse.search(e.target.value);
+    
+    if (enableSearchHighlight) {
+      renderSearchHighlightResultsMain(searchText, results);
+    } else {
+      renderSearchResultsMain(searchText, results);
+    }
+  }) : null;
+
+</script>

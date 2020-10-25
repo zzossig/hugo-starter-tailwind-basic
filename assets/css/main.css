@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "grid.css";
+@import "font.css";
+
+html {
+    position: relative;
+    font-family: "Poppins", sans-serif;
+}

@@ -1,0 +1,12 @@
+<script defer src="{{ $.root.Site.Data.lib.js.particles.url }}" crossorigin="anonymous"></script>
+
+<div id="particles-js" class="grid-full"></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    {{ $options := $.root.Site.Data.particles }}
+    var options = JSON.parse({{ $options | jsonify }});
+
+    particlesJS("particles-js", options);
+  });
+</script>

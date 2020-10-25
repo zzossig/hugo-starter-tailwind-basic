@@ -1,0 +1,9 @@
+<div class="flex">
+  {{ $size := .size }}
+  {{ $classes := .classes }}
+  {{ range $key, $value := .links }}
+    <a href="{{ $value }}" target="_blank" rel="noreferrer" class="{{ $classes }}">
+      {{ partial (print "svgs/social/" $key ".svg") (dict "width" $size "height" $size) }}
+    </a>
+  {{ end }}
+</div>

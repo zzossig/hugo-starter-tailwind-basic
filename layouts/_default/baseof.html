@@ -2,22 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>
-      {{ .Title }}
-    </title>
-    <meta name="description" content="{{ .Description }}">
-    {{/* styles */}}
-    {{ $options := dict "inlineImports" true }}
-    {{ $styles := resources.Get "css/styles.css" }}
-    {{ $styles = $styles | resources.PostCSS $options }}
-    {{ if  hugo.IsProduction  }}
-      {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
-    {{ end }}
-    <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
+    <title>{{ block "title" . }}{{ .Title }} – {{ .Site.Title }}{{ end }}</title>
+    {{ partial "head/meta" . }}
+    {{ partial "head/scripts" . }}
+    {{ partial "head/styles.html" . }}
+    {{ partial "head/services" . }}
   </head>
-  <body class="my-10">
-    <div class="container px-4 lg:mx-auto">
+  <body>
+    <div class="grid-root lg:grid-root">
+      {{ partial "navbar/navbar.html" . }}
       {{ block "main" . }}{{ end }}
+      {{ partial "footer/footer.html" . }}
     </div>
   </body>
 </html>

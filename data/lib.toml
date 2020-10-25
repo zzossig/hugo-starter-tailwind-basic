@@ -1,0 +1,6 @@
+[js.typewriter]
+  sri = "sha256-dsvC/UolMujQ/UQ7lVeJ7Q/FV3BSzWO0rc8iz1rqHQo="
+  url = "https://cdn.jsdelivr.net/npm/typewriter-effect@2.13.1/dist/core.js"
+[js.particles]
+  sri = ""
+  url = "https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"
