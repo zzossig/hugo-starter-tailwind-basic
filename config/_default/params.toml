@@ -2,6 +2,8 @@ useFaviconGenerator = true # https://www.favicon-generator.org/
 
 enableSearch = true
 enableSearchHighlight = true
+enableLangChange = true
+enableDarkMode = true
 
 archiveGroupByDate = "2006"
 archivePaginate = 20

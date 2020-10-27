@@ -1,9 +1,12 @@
+// toggle container
 var menuContainer = document.getElementById('menu-container');
 var searchContainer = document.getElementById('search-container');
 var menuIcon = document.getElementById('menu-icon');
 var searchIcon = document.getElementById('search-icon');
 var cancelMenuIcon = document.getElementById('cancel-menu-icon');
 var cancelSearchIcon = document.getElementById('cancel-search-icon');
+var searchInputElem = document.getElementById('search-input');
+var searchResultElem = document.querySelector('.search-result__body');
 var bodyElem = document.querySelector('body');
 
 function hideContainer(container) {
@@ -30,6 +33,7 @@ menuIcon.onclick = function () {
 
 searchIcon.onclick = function () {
   showContainer(searchContainer);
+  searchInputElem.focus();
 }
 
 cancelMenuIcon.onclick = function () {
@@ -38,4 +42,20 @@ cancelMenuIcon.onclick = function () {
 
 cancelSearchIcon.onclick = function () {
   hideContainer(searchContainer);
+  searchInputElem.value = '';
+  searchResultElem.replaceChild(document.createElement('ul'), searchResultElem.querySelector('ul'));
+}
+
+// darkmode
+var darkmodeIcon = document.getElementById('darkmode-icon');
+var bodyElem = document.querySelector('body');
+
+darkmodeIcon.onclick = function() {
+  if (bodyElem.classList.contains('dark')) {
+    bodyElem.classList.remove('dark');
+    localStorage.removeItem('theme');
+  } else {
+    bodyElem.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  }
 }

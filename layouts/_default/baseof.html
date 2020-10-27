@@ -9,7 +9,14 @@
     {{ partial "head/services" . }}
   </head>
   <body>
-    <div class="grid-root lg:grid-root">
+    <script>
+      var localTheme = localStorage.getItem('theme');
+
+      if (localTheme && localTheme === 'dark') {
+        document.querySelector('body').className = 'dark';
+      }
+    </script>
+    <div class="grid-root bg-root color-root">
       {{ partial "navbar/navbar.html" . }}
       {{ block "main" . }}{{ end }}
       {{ partial "footer/footer.html" . }}

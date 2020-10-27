@@ -1,0 +1,14 @@
+{{ define "main" }}  
+  <section class="grid-mid md:grid-mid w-full px-4 lg:px-8">
+    <ul class="archive__ul">
+    {{ range (where .Site.RegularPages "Section" "talks") }}
+        <li class="flex">
+          <span class="archive__type">{{ .Type }}</span>
+          <a href="{{ .Permalink }}" class="archive__title">{{ .Title }}</a>
+          <div class="flex-grow"></div>
+          <span class="archive__date">{{ .Date.Format (i18n "archive-dateformat") }}</span>
+        </li>
+    {{ end }}
+    </ul>
+  </section>
+{{ end }}

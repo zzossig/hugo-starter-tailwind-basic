@@ -1,3 +1,5 @@
-{{ range .text }}
-  {{ . | markdownify }}
+{{ range .texts }}
+  <span class="{{ .classes }}">
+    {{ .value | markdownify }}
+  </span>
 {{ end }}

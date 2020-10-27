@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <section class="grid-mid md:grid-mid px-4 prose dark:prose-dark prose-sm sm:prose lg:prose-xl max-w-none">
+    <header class="{{ $.Params.titleClasses }}">
+      {{ .Title }}
+    </header>
+    <article class="{{ $.Params.contentClasses }}">
+      {{ .Content }}
+    </article>
+  </section>
+{{ end }}

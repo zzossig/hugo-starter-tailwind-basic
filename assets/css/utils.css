@@ -1,0 +1,15 @@
+.bg-root {
+  @apply bg-solarized-base3 dark:bg-solarized-base03;
+}
+
+.color-root {
+  @apply text-gray-900 dark:text-gray-200;
+}
+
+.bg-old {
+  @apply bg-gradient-to-r from-solarized-base3 dark:from-solarized-base02 via-solarized-base3 dark:via-solarized-base02 to-solarized-base2 dark:to-solarized-base03;
+}
+
+.icolor-menu {
+  @apply text-solarized-base02 dark:text-gray-200 hover:text-solarized-blue dark:hover:text-solarized-blue
+}

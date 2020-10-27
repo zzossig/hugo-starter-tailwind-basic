@@ -1,4 +1,4 @@
-{{ $toggle := resources.Get "js/toggle-container.js" | resources.Minify | resources.Fingerprint "sha512" }}
+{{ $toggle := resources.Get "js/toggle-utils.js" | resources.Minify | resources.Fingerprint "sha512" }}
 <script defer src="{{ $toggle.RelPermalink }}" integrity="{{ $toggle.Data.Integrity }}"></script>
 
 {{ if $.Param "enableSearch" }}

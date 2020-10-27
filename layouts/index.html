@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{ $root := . }}
 
-  <article class="grid-row-m max-w-none h-full my-10">
+  <article class="grid-mid md:grid-mid my-10">
     {{ partial "home/home.html" . }}
   </article>
 
@@ -12,7 +12,7 @@
       {{ end }}
       
       {{ if .classes }}
-        <div class="grid-full {{ .classes }}"></div>
+        <div class="grid-full overflow-hidden {{ .classes }}"></div>
       {{ end }}
       
       {{ if .image }}

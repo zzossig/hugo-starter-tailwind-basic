@@ -3,6 +3,7 @@ copyright = "&copy;{year} zzossig, All right reserved"
 title = "Make a blog with Hugo theme zoe!"
 # disableKinds = []
 disableKinds = ["taxonomy", "term"]
+buildFuture = true
 
 [outputs]
   home = ["HTML", "RSS", "SearchIndex"]

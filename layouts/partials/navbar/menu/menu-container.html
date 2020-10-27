@@ -1,13 +1,12 @@
-<div id="menu-container" class="grid-full absolute -z-10 transition-opacity duration-300 ease-in-out bg-green-600 opacity-0 min-h-screen w-full">
-  <div class="flex items-center">
+<div id="menu-container" class="grid-full absolute -z-10 transition-opacity duration-300 ease-in-out bg-root opacity-0 min-h-screen w-full">
+  <div class="flex items-center px-4 md:px-12 py-2 h-24">
     <div class="flex-grow"></div>
-    <span id="cancel-menu-icon" class="cursor-pointer text-red-900 p-2">
-      {{ partial "svgs/basic/delete.svg" (dict "width" 40 "height" 40) }}
+    <span id="cancel-menu-icon" class="cursor-pointer icolor-menu">
+      {{ partial "svgs/basic/cancel.svg" (dict "width" 40 "height" 40) }}
     </span>
   </div>
 
   <div class="px-4 md:px-12 pb-8 md:pb-16">
-dsah
   </div>
 
   <div class="flex justify-center px-4 md:px-12">
@@ -19,8 +18,8 @@ dsah
         {{ $active = or $active (eq (lower $menu.URL) (lower $current.Title)) }}
         {{ $active = or $active (eq (lower $menu.URL) (lower $current.Type)) }}
 
-        <li class="text-2xl font-semibold w-4/5 md:w-2/5 mb-8 {{ if $active }}text-blue-500{{ end }}">
-          <a href="{{ $menu.URL | relLangURL }}">{{ safeHTML $menu.Name }}</a>
+        <li class="text-2xl font-semibold w-4/5 md:w-2/5 mb-8 text-gray-900 dark:text-gray-200 {{ if $active }}text-solarized-blue dark:text-solarized-cyan{{ end }}">
+          <a href="{{ $menu.URL | relLangURL }}" class="hover:text-solarized-red">{{ safeHTML $menu.Name }}</a>
         </li>
         
       {{ end }}
